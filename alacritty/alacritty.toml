@@ -1,46 +1,45 @@
-
 window.padding.x = 12
 window.padding.y = 12
-window.opacity= 1
-# Colors (Alabaster Dark)
-# author tonsky
+window.opacity = 0.5
 
 [colors.primary]
-background = '#181926'
-foreground = '#eff1f5'
+background = "#0d0f18"
+foreground = "#a5b6cf"
 
 [colors.cursor]
-text = '#0E1415'
-cursor = '#CECECE'
+cursor = "#a5b6cf"
+text = "CellForeground"
 
 [cursor]
 style = 'beam'
 unfocused_hollow = false
 
-
-
 [colors.normal]
-black = '#0E1415'
-red = '#e25d56'
-green = '#55FF55'
-yellow = '#e9bf57'
-blue = '#4a88e4'
-magenta = '#915caf'
-cyan = '#23acdd'
-white = '#f0f0f0'
+black = "#1c1e27"
+blue = "#8baff1"
+cyan = "#98d3ee"
+green = "#95d3af"
+magenta = "#c79bf0"
+red = "#e26c7c"
+white = "#d0d3d8"
+yellow = "#f1d8a5"
 
 [colors.bright]
-black = '#777777'
-red = '#f36868'
-green = '#55FF55'
-yellow = '#f0bf7a'
-blue = '#6f8fdb'
-magenta = '#e987e9'
-cyan = '#4ac9e2'
-white = '#FFFFFF'
+black = "#151720"
+blue = "#86aaec"
+cyan = "#93cee9"
+green = "#90ceaa"
+magenta = "#c296eb"
+red = "#dd6777"
+white = "#cbced3"
+yellow = "#ecd3a0"
 
+
+[font]
+size = 18
 [font.normal]
-family = 'Monocraft'
+family = 'Iosevka Nerd Font'
+style = 'Bold'
 
 [general]
 import = [
