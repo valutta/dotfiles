@@ -21,7 +21,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
   networking.hostName = "gentoo";
   networking.networkmanager.enable = true;
@@ -55,7 +55,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = false;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
   #services.xserver.windowManager.qtile.enable = true;
   #services.xserver.windowManager.qtile.extraPackages = p: with p; [ qtile-extras ];
   #services.picom.enable = true;
@@ -95,7 +95,7 @@
   programs.fish.enable = true;
 
 
-  services.udev.extraRules = builtins.readFile ./udev-rules/70-madlions.rules;
+  #services.udev.extraRules = builtins.readFile ./udev-rules/70-#madlions.rules;
 
 
 
@@ -163,6 +163,15 @@
       hypridle
       searxng
       hyprcursor
+      hyprpanel
+      astal.io
+      astal.gjs
+      astal.tray
+      astal.cava
+      astal.astal3
+      astal.astal4
+      astal.notifd
+      astal.source
       swww
       waypaper
       rofi
@@ -231,9 +240,16 @@
       chromium
       #lsusb
       usbutils
-      hyprpanel
-
     ];
+  };
+
+
+  fonts = {
+    packages = with pkgs; [
+     nerd-fonts.iosevka
+     nerd-fonts.symbols-only
+    ];
+    fontconfig.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
