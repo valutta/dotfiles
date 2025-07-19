@@ -1,28 +1,96 @@
 {
   "layer": "top",
-  "position": "bottom",
-  "margin-bottom": 10,
-  "margin-left": 20,
-  "margin-right": 20,
-  "modules-left": ["window"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["tray", "pulseaudio", "clock"],
-  "height": 38,
+  "position": "top",
+  "height": 27,
 
-  "window": {
-    "max-length": 50,
-  },
+  "modules-left": ["hyprland/workspaces", "custom/scratch", "hyprland/window"],
+  "modules-center": [],
+  "modules-right": [
+    "network",
+    "temperature",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "tray",
+  ],
 
   "hyprland/workspaces": {
+    "disable-scroll": true,
     "format": "{id}",
+    "persistent-workspaces": {
+      "*": 5,
+    },
   },
 
-  "pulseaudio": {
-    "format": " {volume}%",
-    "scroll-step": 5,
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 150,
+  },
+
+  "custom/scratch": {
+    "interval": 3,
+    "exec": "hyprctl clients | grep -q 'scratchpad' && echo '^{$(hyprctl clients | grep -c 'scratchpad')}' || echo '^0'",
+    "format": "{}",
+    "on-click": "hyprctl dispatch togglespecialworkspace",
+    "on-click-right": "hyprctl dispatch movetoworkspace special",
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 15,
   },
 
   "clock": {
-    "format": "{:%H:%M %d.%m}",
+    "format": "{:%a %b %e  %R}",
+    "interval": 30,
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "full": 99,
+      "good": 98,
+      "normal": 98,
+      "warning": 20,
+      "critical": 20,
+    },
+    "format": "{icon}   {capacity}%",
+    "format-good": "{icon}   {capacity}%",
+    "format-full": "   {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 30,
+  },
+
+  "network": {
+    "interface": "wlp4s0",
+    "format-wifi": "   WiFi-On",
+    "format-disconnected": "睊   Disconnected",
+    "interval": 60,
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [""],
+    "interval": 30,
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%  ",
+    "format-icons": ["", "", "", ""],
+    "interval": 60,
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%  ",
+    "format-bluetooth": "  {volume}%  ",
+    "format-muted": "婢  Mute  ",
+    "interval": 60,
+    "format-icons": {
+      "default": [""],
+    },
+    "on-click": "blueman-manager",
   },
 }
