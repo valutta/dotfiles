@@ -32,15 +32,15 @@ function fish_prompt
    #    printf "@" $USER
    #end
    #
-   #set_color white
-   #printf "%s" (hostname -s)
+   set_color '#e26c7c'
+   printf ">"
    #set_color white
    #printf " " (hostname -s)
 
 
-    set_color white
+    set_color '#98d3ee'
 	fish_default_key_bindings
-    echo -n ">>> "
+    echo -n "<>  "
 end
 
 alias vim='nvim'
