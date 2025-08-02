@@ -1,96 +1,24 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 27,
+	"layer": "top",
+	"position": "top",
+	"margin": "5 10 0",
+    "fixed center": true,
+    "reload_style_on_change": true,
+	"height": 34,
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
 
-  "modules-left": ["hyprland/workspaces", "custom/scratch", "hyprland/window"],
-  "modules-center": [],
-  "modules-right": [
-    "network",
-    "temperature",
-    "backlight",
-    "pulseaudio",
-    "battery",
-    "clock",
-    "tray",
-  ],
+	"modules-center": [
+        "clock",
+        "custom/recording"
+    ],
 
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "format": "{id}",
-    "persistent-workspaces": {
-      "*": 5,
-    },
-  },
+	"modules-left": [
+        "hyprland/workspaces"
+    ],
 
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 150,
-  },
-
-  "custom/scratch": {
-    "interval": 3,
-    "exec": "hyprctl clients | grep -q 'scratchpad' && echo '^{$(hyprctl clients | grep -c 'scratchpad')}' || echo '^0'",
-    "format": "{}",
-    "on-click": "hyprctl dispatch togglespecialworkspace",
-    "on-click-right": "hyprctl dispatch movetoworkspace special",
-  },
-
-  "tray": {
-    "icon-size": 18,
-    "spacing": 15,
-  },
-
-  "clock": {
-    "format": "{:%a %b %e  %R}",
-    "interval": 30,
-  },
-
-  "battery": {
-    "bat": "BAT0",
-    "states": {
-      "full": 99,
-      "good": 98,
-      "normal": 98,
-      "warning": 20,
-      "critical": 20,
-    },
-    "format": "{icon}   {capacity}%",
-    "format-good": "{icon}   {capacity}%",
-    "format-full": "   {capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "interval": 30,
-  },
-
-  "network": {
-    "interface": "wlp4s0",
-    "format-wifi": "   WiFi-On",
-    "format-disconnected": "睊   Disconnected",
-    "interval": 60,
-  },
-
-  "temperature": {
-    "thermal-zone": 0,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [""],
-    "interval": 30,
-  },
-
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}  {percent}%  ",
-    "format-icons": ["", "", "", ""],
-    "interval": 60,
-  },
-
-  "pulseaudio": {
-    "format": "{icon}  {volume}%  ",
-    "format-bluetooth": "  {volume}%  ",
-    "format-muted": "婢  Mute  ",
-    "interval": 60,
-    "format-icons": {
-      "default": [""],
-    },
-    "on-click": "blueman-manager",
-  },
+	"modules-right": [
+        "group/custom-group"
+    ]
 }

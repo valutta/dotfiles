@@ -1,87 +1,155 @@
 * {
-    font-family: "Iosevka Nerd Font";
-    font-size: 16px;
+    border: none;
+    border-radius: 0px;
+    font-family: "Iosevka Nerd Font Mono, DepartureMono Nerd Font";
+    font-weight: bold;
+    font-size: 18px;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: #0d0f18;
-    color: #ffffff;
+    border-radius: 12px;
+    background: alpha(#000000, 0.65);
 }
 
-.modules-left {
-    background-color: #0d0f18;
-    padding: 0px 0px 0px 0px;
+tooltip {
+    background: alpha(@background, 0.3);
+    border-radius: 10px;
+    border: 2px solid alpha(lighter(@main-color), 0.3);
 }
 
-.modules-right {
-    background-color: #0d0f18;
-    padding: 0px 5px 0px 0px;
-}
-
-#custom-scratch {
-    background-color: #0d0f18;
-    color: #b8b8b8;
-    padding: 0px 9px 0px 9px;
+tooltip label {
+    color: @foreground;
 }
 
 #workspaces {
+    background: alpha(@background, 0.2);
+    border-radius: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 #workspaces button {
-    padding: 0px 11px 0px 11px;
-    min-width: 1px;
-    color: #888888;
+    padding: 0px;
+    color: alpha(#FFFFFF, 0.5);
+    background: transparent;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.active {
+    background: alpha(#FFFFFF, 0.0);
+    color: lighter(#FFFFFF);
+    border-radius: 20px;
+    transition: color 0.5s;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.8s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.focused {
-    padding: 0px 11px 0px 11px;
-    background-color: #0d0f18;
-    color: #ffffff;
+    color: @color5;
+    background: transparent;
 }
 
-#mode {
-    background-color: #0d0f18;
-    color: #ffffff;
-    padding: 0px 5px 0px 5px;
-    border: 1px solid #2f343a;
+#workspaces button.urgent {
+    color: @color5;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: @color5;
+}
+
+#window,
+#clock,
+#battery,
+#network,
+#memory,
+#custom-recording,
+#bluetooth,
+#workspaces {
+    padding: 0px 14px 0px 14px;
+}
+
+#custom-recording.recording-active {
+    color: #fa5252;
+    background-color: alpha(@background, 0.2);
+    border-radius: 20px;
+    padding: 0 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 3px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+#custom-recording.recording-inactive {
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 #window {
-    color: #ffffff;
-    background-color: #0d0f18;
-    padding: 0px 10px 0px 10px;
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
-    color: transparent;
-}
-
-window#waybar.empty {
-    background-color: #0d0f18;
-}
-
-#network,
-#temperature,
-#backlight,
-#pulseudio,
-#battery {
-    padding: 0px 15px 0px 15px;
+    margin-left: 60px;
+    margin-right: 60px;
+    background: alpha(@background, 0.3);
+    border-radius: 10px;
+    color: lighter(@main-color);
 }
 
 #clock {
-    margin: 0px 15px 0px 15px;
+    color: lighter(#FFFFFF);
+    background: transparent;
 }
 
-#tray {
-    padding: 0px 8px 0px 5px;
-    margin: 0px 5px 0px 5px;
+#network {
+    color: lighter(@main-color);
+    background: transparent;
 }
 
-#battery.critical {
-    color: #ff5555;
+#bluetooth {
+    color: lighter(@main-color);
+    background: transparent;
+} 
+
+#battery {
+    color: lighter(@main-color);
+    background: transparent;
 }
 
-#network.disconnected {
-    color: #ff5555;
+#memory {
+    color: lighter(@main-color);
+    background: transparent;
+}
+
+#calendar {
+    font-family: "Ndot55, DepartureMono Nerd Font";
 }
