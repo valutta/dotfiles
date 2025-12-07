@@ -166,6 +166,7 @@ services.flatpak.enable = true;
     packages = with pkgs; [
      nerd-fonts.iosevka
      nerd-fonts.symbols-only
+     maple-mono.NF
     ];
     fontconfig.enable = true;
   };
