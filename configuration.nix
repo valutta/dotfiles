@@ -23,9 +23,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
-  networking.hostName = "gentoo";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  #networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
   networking.wireless.iwd.enable = true;
   programs.steam.enable = true;
 
@@ -53,12 +53,8 @@
 
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = false;
+  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  #services.xserver.windowManager.qtile.enable = true;
-  #services.xserver.windowManager.qtile.extraPackages = p: with p; [ qtile-extras ];
-  #services.picom.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -93,65 +89,37 @@
   }; 
   security.rtkit.enable = true;
   programs.fish.enable = true;
-
-
-  #services.udev.extraRules = builtins.readFile ./udev-rules/70-#madlions.rules;
-
-
-
-  environment.etc."os-release".text = ''
-    NAME="Gentoo Linux"
-    ID=gentoo
-    PRETTY_NAME="Gentoo Linux"
-    ANSI_COLOR="0;38;2;0;112;192"
-    HOME_URL="https://www.freebsd.org/"
-    SUPPORT_URL="https://www.freebsd.org/support.html"
-    BUG_REPORT_URL="https://bugs.freebsd.org/"
-    LOGO="gentoo"
-    DEFAULT_HOSTNAME=gentoo
-  '';
-
-  services.printing.enable = true;
-
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
-
-  services.flatpak.enable = true;
+  programs.amnezia-vpn.enable = true;
+  
+services.flatpak.enable = true;
 
   security.doas.enable = true;
   security.sudo.enable = false;
   security.doas.extraRules = [{
-    users = ["valutta"];
+    users = ["v3g7"];
     keepEnv = true;
     persist = true;
   }];
-  users.users.valutta = { 
+  users.users.v3g7 = { 
     isNormalUser = true;
     shell = pkgs.fish;
-    description = "valutta";
+    description = "v3g7";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
       nano
       vim
-      zed-editor
       fish
       starship
-      kitty
       btop
       fastfetch
-      neofetch
-      inxi
       pfetch
-      blender
-      emacs
-      spicetify-cli
-      lunar-client
-      hiddify-app
       vlc
-      librewolf
+      figma-linux
+      figma-agent
+      tor-browser
+      pavucontrol   
+      git
+      amnezia-vpn
       rustup
       rustc
       steam
@@ -161,88 +129,38 @@
       cargo
       hyprland
       hypridle
-      searxng
       hyprcursor
       hyprpanel
-      astal.io
-      astal.gjs
-      astal.tray
-      astal.cava
-      astal.astal3
-      astal.astal4
-      astal.notifd
-      astal.source
       swww
       waypaper
       rofi
-      tmux
       waybar
+      cava
       slurp
       grim
       mpvpaper
-      hyprshot
       wl-clipboard
       nodejs
-      mullvad-vpn
       iwd
       gcc
-      xorg.libX11
-      xorg.libXinerama
-      xorg.libXrandr
-      xorg.xorgproto
-      xorg.libXcursor
-      xorg.libXfixes
-      xorg.libXinerama
-      xorg.libXext
-      swaynotificationcenter
-      libsForQt5.xwaylandvideobridge
+      xwayland
       neovim
-      xfce.thunar
-      yazi
-      astal.gjs
-      gjs
-      gtk3
+      vicinae
       alacritty
       firefox
-      brave
       vesktop
-      oh-my-fish
       telegram-desktop
       spotify
-      obs-studio
-      wine
-      winetricks
-      ntfs3g
-      prismlauncher
       easyeffects
-      pulseaudio
-      cava
-      dunst
-      lxappearance
-      libsForQt5.qt5ct
-      kdePackages.qt6ct
-      pkgs.gnome-themes-extra
       papirus-icon-theme
-      kitty
       neofetch
-      picom
-      python313Packages.qtile-extras
-      python313Packages.dbus-next
-      playerctl
       rofi
       dunst
-      stow
       nwg-look
       alsa-utils
-      nitrogen
-      xclip
-      scrot
-      chromium
-      #lsusb
       usbutils
     ];
   };
-
 
   fonts = {
     packages = with pkgs; [
@@ -261,4 +179,3 @@
 
   system.stateVersion = "25.05";
 }
-
