@@ -143,6 +143,9 @@
   services.displayManager.gdm.enable = true;
   #services.desktopManager.gnome.enable = false;
   services.desktopManager.plasma6.enable = true;
+  #xsession.windowManager.bspwm.enable = true;
+  #services.picom.enable = true;
+  #services.sxhkd.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -200,8 +203,8 @@ services.flatpak.enable = true;
     description = "v3g7";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      nano
-      vim
+      #nano
+      #vim
       fish
       starship
       eza
@@ -212,6 +215,7 @@ services.flatpak.enable = true;
       vlc
       nemo
       figma-linux
+      emacsPackages.doom
       figma-agent
       tor-browser
       pavucontrol
@@ -220,7 +224,9 @@ services.flatpak.enable = true;
       rustup
       rustc
       steam
-      brave
+      #brave
+      hyprlandPlugins.hyprscrolling
+      hyprlandPlugins.hy3
       libinput
       protonplus
       steam-unwrapped
@@ -245,15 +251,22 @@ services.flatpak.enable = true;
       iwd
       gcc
       xwayland
-      neovim
+      #neovim
+      emacs
+      #emacsPackages.doom
+      ripgrep
+      coreutils
+      fd
+      sxhkd
+      clang
       vicinae
       alacritty
       firefox
-      mullvad-browser
-      librewolf
+      #mullvad-browser
+      #librewolf
       #obs-studio
       libratbag
-      lunar-client
+      #lunar-client
       #badlion-client
       zapret
       vesktop
@@ -265,6 +278,7 @@ services.flatpak.enable = true;
       vimPlugins.LazyVim
       rofi
       dunst
+      st
       nwg-look
       alsa-utils
       usbutils
