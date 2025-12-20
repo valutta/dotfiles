@@ -15,6 +15,14 @@ if status is-interactive
   alias l='eza -F --icons --color=always --group-directories-first'
   alias l.='eza -a | egrep "^\."'
   alias install='yay -S'
+  alias em='emacs -nw'
+  alias nvim='emacs -nw'
+  alias vim='emacs -nw'
+  alias nano='emacs -nw'
+  alias code='emacs -nw'
+  alias vi='emacs -nw'
+  alias config='doas emacs -nw /etc/nixos/configuration.nix'
+  alias vscode='emacs -nw'
   alias search='yay -Ss'
 
   # Transient Promt & Starship
