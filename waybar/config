@@ -1,0 +1,81 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-top": 0,
+    "spacing": 0,
+    "padding": 50,
+
+    "modules-left": ["hyprland/workspaces", "tray"],
+    "modules-center": [
+        "custom/left-curve-3",
+        "custom/left-curve-2",
+        "custom/left-curve-1",
+        "clock",
+        "custom/right-curve-1",
+        "custom/right-curve-2",
+        "custom/right-curve-3"
+    ],
+    "modules-right": ["pulseaudio",],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "spacing": 10
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "format-alt": "  {:%a %d %b - %I:%M %p}  ",
+        "tooltip": false
+    },
+
+    // Разделители (имитация Polybar модулей text1-text6)
+    "custom/left-curve-1": { "format": "", "tooltip": false },
+    "custom/left-curve-2": { "format": "", "tooltip": false },
+    "custom/left-curve-3": { "format": "", "tooltip": false },
+    "custom/right-curve-1": { "format": "", "tooltip": false },
+    "custom/right-curve-2": { "format": "", "tooltip": false },
+    "custom/right-curve-3": { "format": "", "tooltip": false },
+
+    "pulseaudio": {
+        "format": "<span foreground='#fabd2f'> </span> {volume}%",
+        "format-muted": "<span foreground='#928374'>󰝟 </span> muted",
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "format": "<span foreground='#fabd2f'> </span> {percent}%"
+    },
+
+    "network": {
+        "format-wifi": "<span foreground='#fabd2f'> </span> On",
+        "format-disconnected": "<span foreground='#fb4934'>󰖪 </span> Disconnected",
+        "tooltip-format": "{essid}"
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "<span foreground='#fabd2f'> </span> {capacity}%",
+        "format-charging": "<span foreground='#fabd2f'> </span> {capacity}%",
+    },
+
+    "battery#power": {
+        "format": "<span foreground='#fabd2f'>{icon} </span> {watt}W",
+        "format-icons": ["", ""],
+        "tooltip": false
+    },
+
+    "battery#time": {
+        "format": "<span foreground='#fabd2f'> </span> {time}",
+        "tooltip": false
+    }
+}

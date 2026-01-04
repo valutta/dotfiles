@@ -1,99 +1,67 @@
-* {
-    font-family: "Iosevka Nerd Font";
-    font-size: 16px;
-}
+/* Gruvbox Palette */
+@define-color bg       #282828;
+@define-color bg_alt   #3c3836;
+@define-color fg       #ebdbb2;
+@define-color yellow   #fabd2f;
+@define-color gray     #928374;
 
+/* Gradient Colors (на основе фиолетовых тонов из твоего конфига) */
+@define-color color1   #d3869b; /* Gruvbox Aqua/Purple mix */
+@define-color color2   #b16286;
+@define-color color3   #8f3f71;
+
+* {
+    font-family: "Google Sans Code NF";
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
 
 window#waybar {
-    background-color: #225877;
-    color: #ffffff;
+    background: @bg;
+    color: @fg;
+    border-radius: 10px;
 }
 
-
-.modules-left {
-	background-color: #323232;
-	padding: 0px 0px 0px 0px;
-}
-
-
-.modules-right {
-	background-color: #323232;
-	padding: 0px 5px 0px 0px;
-}
-
-
-#custom-scratch {
-	background-color: #323232;
-	color: #b8b8b8;
-	padding: 0px 9px 0px 9px;
-}
-
-
-#workspaces {
-}
-
-
+/* Workspaces */
 #workspaces button {
-	padding: 0px 11px 0px 11px;
- 	min-width: 1px;
-	color: #888888;
+    padding: 0 5px;
+    color: @gray;
 }
 
-
-#workspaces button.focused {
-	padding: 0px 11px 0px 11px;
-	background-color: #285577;
-	color: #ffffff;
+#workspaces button.active {
+    color: @yellow;
 }
 
-
-#mode {
-	 background-color: #900000;
-	 color: #ffffff;
-     padding: 0px 5px 0px 5px;
-     border: 1px solid #2f343a;
+#workspaces button.urgent {
+    background: #fb4934;
+    color: @bg;
 }
 
-
-#window {
-	 color: #ffffff;
-	 background-color: #285577;
-     padding: 0px 10px 0px 10px;
+/* Right Side Modules */
+#pulseaudio, #backlight, #network, #battery {
+    padding: 0 10px;
 }
 
-
-window#waybar.empty #window {
-	background-color: transparent;
-	color: transparent;
-}
-
-
-window#waybar.empty {
-	background-color: #323232;
-}
-
-
-#network, #temperature, #backlight, #pulseudio, #battery {
-    padding: 0px 15px 0px 15px;
-}
-
-
+/* Central Gradient Logic */
 #clock {
-	margin: 0px 15px 0px 15px;
+    background: @yellow;
+    color: @bg;
+    padding: 0 5px;
 }
 
+/* Имитация наложения слоев как в Polybar */
+#custom-left-curve-1 { color: @yellow; background: @yellow; font-size: 32px; }
+#custom-right-curve-1 { color: @yellow; background: @yellow; font-size: 32px; }
 
-#tray{
-   padding: 0px 8px 0px 5px;
-   margin: 0px 5px 0px 5px;
-}
+#custom-left-curve-2 { color: @yellow; background: @yellow; font-size: 32px; }
+#custom-right-curve-2 { color: @yellow; background: @yellow; font-size: 32px; }
 
+#custom-left-curve-3 { color: @yellow; background: transparent; font-size: 32px; }
+#custom-right-curve-3 { color: @yellow; background: transparent; font-size: 32px; }
 
-#battery.critical {
-   color: #ff5555;
-}
-
-
-#network.disconnected {
-    color: #ff5555;
+/* Tray */
+#tray {
+    padding-left: 20px;
 }
